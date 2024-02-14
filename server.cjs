@@ -1,10 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const {ObjectId} = require('mongodb')
+const cors = require('cors')
 const app = express()
 const {connectToDb, getDb} = require('./dbConnection.cjs')
 app.use(bodyParser.json())
-
+app.use(cors())
 let db;
 connectToDb((error)=>{
     if(error){
@@ -12,9 +13,10 @@ connectToDb((error)=>{
     }
 
     else{
-        app.listen(8000)
+        const port = process.env.PORT || 8000
+        app.listen(port)
         db = getDb()
-        console.log("success");
+        console.log("Listening on the port ");
     }
 })
 

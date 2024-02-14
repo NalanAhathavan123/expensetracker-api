@@ -1,4 +1,7 @@
-const {MongoClient}= require('mongodb') // for selecting the particular thing(object) from a package use {}
+const {MongoClient}= require('mongodb') 
+
+// for selecting the particular thing(object) from a package use {}
+
 
 let dbConnection;                        // variable for storing the data that stored in mongodb
 function connectToDb(callback){
